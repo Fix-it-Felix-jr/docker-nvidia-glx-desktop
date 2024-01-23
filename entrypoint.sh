@@ -130,17 +130,6 @@ fi
 # Start Fcitx input method framework
 /usr/bin/fcitx &
 
-# Start SSH
-#sudo apt update
-#DEBIAN_FRONTEND=noninteractive
-#sudo apt-get install openssh-server -y
-#mkdir -p ~/.ssh
-#chmod 700 ~/.ssh
-#echo "$PUBLIC_KEY" >> /home/user/authorized_keys
-#chmod 700 /home/user/.ssh/authorized_keys
-#sudo sed -i '42s/.*/AuthorizedKeysFile      authorized_keys/' /etc/ssh/sshd_config
-#sudo service ssh start
-
 # Add custom processes right below this line, or within `supervisord.conf` to perform service management similar to systemd
 
 echo "Session Running. Press [Return] to exit."
