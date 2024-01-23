@@ -137,7 +137,7 @@ sudo apt-get install openssh-server -y
 sudo mkdir -p /root/.ssh
 sudo chmod 700 /root/.ssh
 sudo echo "$PUBLIC_KEY" >> /root/.ssh/authorized_keys
-chmod 700 /root/.ssh/authorized_keys
+sudo chmod 700 /root/.ssh/authorized_keys
 sudo service ssh start
 
 # Add custom processes right below this line, or within `supervisord.conf` to perform service management similar to systemd
