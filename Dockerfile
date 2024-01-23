@@ -535,6 +535,11 @@ COPY selkies-gstreamer-entrypoint.sh /etc/selkies-gstreamer-entrypoint.sh
 RUN chmod 755 /etc/selkies-gstreamer-entrypoint.sh
 COPY supervisord.conf /etc/supervisord.conf
 RUN chmod 755 /etc/supervisord.conf
+RUN apt-get update && apt-get install -y openssh-client
+RUN mkdir -p /home/user/.ssh
+RUN echo "$PUBLIC_KEY" >> /home/user/.ssh/id_rsa
+RUN chown -R user:user /home/user/.ssh
+RUN echo "Host remotehost\n\tStrictHostKeyChecking no\n" >> /home/user/.ssh/config
 
 EXPOSE 8080
 
