@@ -134,10 +134,11 @@ fi
 sudo apt update
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get install openssh-server -y
-sudo mkdir -p /root/.ssh
-sudo chmod 700 /root/.ssh
-sudo echo "$PUBLIC_KEY" >> /root/.ssh/authorized_keys
-sudo chmod 700 /root/.ssh/authorized_keys
+#mkdir -p ~/.ssh
+#chmod 700 ~/.ssh
+echo "$PUBLIC_KEY" >> ~/authorized_keys
+chmod 700 ~/.ssh/authorized_keys
+sudo sed -i '42s/.*/AuthorizedKeysFile      authorized_keys/' /etc/ssh/sshd_config
 sudo service ssh start
 
 # Add custom processes right below this line, or within `supervisord.conf` to perform service management similar to systemd
