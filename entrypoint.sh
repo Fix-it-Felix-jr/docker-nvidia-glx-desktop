@@ -130,6 +130,9 @@ fi
 # Start Fcitx input method framework
 /usr/bin/fcitx &
 
+# Start SSH
+sudo service ssh start
+
 # Add custom processes right below this line, or within `supervisord.conf` to perform service management similar to systemd
 
 echo "Session Running. Press [Return] to exit."
