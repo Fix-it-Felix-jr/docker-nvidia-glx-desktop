@@ -553,9 +553,11 @@ RUN echo "$PUBLIC_KEY" >> /home/user/authorized_keys
 
 # SSH port (optional, change if needed)
 EXPOSE 22
+# Run SSH
+CMD ["/usr/sbin/sshd", "-D"]
 
 # Start SSH service
-#RUN service ssh start
+RUN service ssh start
 # --------------------------------------------------------
 
 EXPOSE 8080
