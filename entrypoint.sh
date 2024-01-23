@@ -107,6 +107,9 @@ sudo sed -i '/Section\s\+"Monitor"/a\    '"$MODELINE" /etc/X11/xorg.conf
 # Prevent interference between GPUs, add this to the host or other containers running Xorg as well
 echo -e "Section \"ServerFlags\"\n    Option \"AutoAddGPU\" \"false\"\nEndSection" | sudo tee -a /etc/X11/xorg.conf > /dev/null
 
+# Start SSH
+sudo service sshd start
+
 # Default display is :0 across the container
 export DISPLAY=":0"
 # Run Xorg server with required extensions
@@ -129,9 +132,6 @@ fi
 
 # Start Fcitx input method framework
 /usr/bin/fcitx &
-
-# Start SSH
-sudo service ssh start
 
 # Add custom processes right below this line, or within `supervisord.conf` to perform service management similar to systemd
 
