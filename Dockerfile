@@ -552,12 +552,12 @@ RUN echo "$PUBLIC_KEY" >> /home/user/authorized_keys
 #RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 # SSH port (optional, change if needed)
-EXPOSE 22
+#EXPOSE 22
 # Run SSH
-CMD ["/usr/sbin/sshd", "-D"]
+#CMD ["/usr/sbin/sshd", "-D"]
 
 # Start SSH service
-RUN service ssh start
+#RUN service ssh start
 # --------------------------------------------------------
 
 EXPOSE 8080
