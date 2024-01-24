@@ -538,27 +538,6 @@ RUN chmod 755 /etc/supervisord.conf
 
 # Set SSH ------------------------------------------------
 RUN apt-get update && apt-get install -y openssh-server
-#RUN mkdir -p /home/root/.ssh
-RUN echo "$PUBLIC_KEY" >> /home/user/authorized_keys
-#RUN sed -i '42s/.*/AuthorizedKeysFile      authorized_keys/' /etc/ssh/sshd_config
-#RUN chmod 700 /home/root/.ssh/authorized_keys
-#RUN service sshd start
-#RUN chown -R user:user /home/user/.ssh
-#RUN echo "Host remotehost\n\tStrictHostKeyChecking no\n" >> /home/user/.ssh/config
-# Permit root login via SSH
-#RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
-# Enable password authentication
-#RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
-
-# SSH port (optional, change if needed)
-#EXPOSE 22
-# Run SSH
-#CMD ["/usr/sbin/sshd", "-D"]
-
-# Start SSH service
-#RUN service ssh start
-# --------------------------------------------------------
 
 EXPOSE 8080
 
