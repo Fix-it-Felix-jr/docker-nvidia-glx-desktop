@@ -1,5 +1,6 @@
 # Setup ssh
 setup_ssh() {
+    apt-get update && apt-get install -y openssh-server
     if [[ $PUBLIC_KEY ]]; then
         echo "Setting up SSH..."
         mkdir -p ~/.ssh
@@ -39,3 +40,5 @@ setup_ssh() {
         done
     fi
 }
+
+setup_ssh
