@@ -546,4 +546,6 @@ ENV SHELL /bin/bash
 ENV USER user
 WORKDIR /home/user
 
+CMD [ "/start.sh" ]
+
 ENTRYPOINT ["/usr/bin/supervisord"]
