@@ -539,13 +539,14 @@ RUN chmod 755 /etc/supervisord.conf
 # Set SSH ------------------------------------------------
 RUN apt-get update && apt-get install -y openssh-server
 
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+CMD [ "/start.sh" ]
 EXPOSE 8080
 
 USER 1000
 ENV SHELL /bin/bash
 ENV USER user
 WORKDIR /home/user
-
-CMD [ "/start.sh" ]
 
 ENTRYPOINT ["/usr/bin/supervisord"]
