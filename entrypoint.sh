@@ -108,10 +108,10 @@ sudo sed -i '/Section\s\+"Monitor"/a\    '"$MODELINE" /etc/X11/xorg.conf
 echo -e "Section \"ServerFlags\"\n    Option \"AutoAddGPU\" \"false\"\nEndSection" | sudo tee -a /etc/X11/xorg.conf > /dev/null
 
 # Start SSH
-sudo echo "$PUBLIC_KEY" >> /home/user/.ssh/authorized_keys
-sudo chmod 700 /home/user/.ssh/authorized_keys
-sudo echo "$PUBLIC_KEY" >> /root/.ssh/authorized_keys
-sudo chmod 700 /root/.ssh/authorized_keys
+echo "$PUBLIC_KEY" >> /home/user/authorized_keys
+chmod 700 /home/user/authorized_keys
+#sudo echo "$PUBLIC_KEY" >> /root/.ssh/authorized_keys
+#sudo chmod 700 /root/.ssh/authorized_keys
 sudo service ssh start
 
 # Default display is :0 across the container
