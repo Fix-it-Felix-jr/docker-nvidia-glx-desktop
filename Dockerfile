@@ -538,9 +538,10 @@ RUN chmod 755 /etc/supervisord.conf
 
 # Set SSH ------------------------------------------------
 RUN apt-get update && apt-get install -y openssh-server
-RUN mkdir /root/.ssh
-RUN echo "$PUBLIC_KEY" >> /root/.ssh/authorized_keys
-RUN chmod 700 /root/.ssh/authorized_keys
+#RUN mkdir /root/.ssh
+#RUN echo "$PUBLIC_KEY" >> /root/.ssh/authorized_keys
+#RUN chmod 700 /root/.ssh/authorized_keys
+RUN sed -i '42s/.*/AuthorizedKeysFile      authorized_keys/' /etc/ssh/sshd_config
 
 #COPY start.sh /start.sh
 #RUN chmod +x /start.sh
