@@ -109,7 +109,7 @@ echo -e "Section \"ServerFlags\"\n    Option \"AutoAddGPU\" \"false\"\nEndSectio
 
 # Start SSH
 #echo "$PUBLIC_KEY" >> /home/user/authorized_keys
-#sudo service ssh start
+sudo service ssh start
 
 # Default display is :0 across the container
 export DISPLAY=":0"
